@@ -25,3 +25,54 @@ The user must be added to **adm** group.
 3. Group names for the new user (before and after being added to the adm group)
 ![groups_before](./images/2.3.png)
 ![groups_after](./images/2.4.png)
+
+## Part 3. Setting up the OS network
+
+Set the machine name as user-1
+
+1. Hostname before any changes
+![kaleysha](./images/3.1.png)
+2. After using the **set-hostname** command
+![user-1](./images/3.2.png)
+
+Set the time zone corresponding to your current location.
+![current_time_zone](./images/3.3.png)
+
+Output the names of the network interfaces using a console command.
+![current_time_zone](./images/3.4.png)
+
+> When a physical network interface is disconnected for any reason, like a hardware 
+> failure or being physically detached from the network, the machine can’t use it for any 
+> communication, even with itself.
+> However, because the loopback interface is only an internal virtual 
+> interface with no physical hardware, the machine can use it anytime to communicate with itself.
+> This can help in troubleshooting scenarios where we want to isolate and identify if a network 
+> issue is caused by an internal problem inside the machine network stack itself.
+
+Use the console command to get the ip address of the device you are working on from the DHCP server.
+![ip_address_from_DHCP_server](./images/3.5.png)
+
+> A DHCP Server is **a network server that automatically provides and
+> assigns IP addresses, default gateways and other network parameters to
+> client devices**. It relies on the standard protocol known as Dynamic
+> Host Configuration Protocol or DHCP to respond to broadcast queries by
+> clients.
+
+Define and display the external ip address of the gateway (ip) and 
+the internal IP address of the gateway, aka default ip address (gw).
+![public_ip](./images/3.6.png)
+![private_ip](./images/3.7.png)
+
+Set static (manually set, not received from DHCP server) ip, gw, dns settings 
+(use public DNS servers, e.g. 1.1.1.1 or 8.8.8.8).
+![Static_ip_gw_etc](./images/3.8.png)
+![apply_changes](./images/3.9.png)
+
+Reboot the virtual machine. Make sure that the static network settings (ip, gw, dns)
+correspond to those set in the previous point.
+![show_changes](./images/3.10.png)
+
+Successfully ping 1.1.1.1 and ya.ru remote hosts and add a screenshot of 
+the output command to the report. There should be "0% packet loss" phrase in command output.
+![ping_ya.ru](./images/3.11.png)
+![ping_1.1.1.1](./images/3.12.png)
