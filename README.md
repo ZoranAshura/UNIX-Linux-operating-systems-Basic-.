@@ -76,3 +76,16 @@ Successfully ping 1.1.1.1 and ya.ru remote hosts and add a screenshot of
 the output command to the report. There should be "0% packet loss" phrase in command output.
 ![ping_ya.ru](./images/3.11.png)
 ![ping_1.1.1.1](./images/3.12.png)
+
+## Part 4. OS Update
+
+Update the system packages to the latest version
+![update_command](./images/4.1.png)
+![upgrade_command](./images/4.2.png)
+
+
+## Part 6. Installing and configuring the time service
+
+Set up the automatic time synchronisation service.
+![check_status](./images/6.1.png)
+![show_time](./images/6.2.png)
