@@ -84,6 +84,23 @@ Update the system packages to the latest version
 ![upgrade_command](./images/4.2.png)
 
 
+## Part 5. Using the sudo command
+
+Allow user created in Part 2 to execute sudo command.
+![allow_newUser_using_sudo_command](./images/5.1.png)
+
+In the report explain the true purpose of sudo command (don’t write about the fact that this word is "magic" one);
+> The sudo command allows you to run programs with the security privileges of another user 
+>(by default, as the superuser). It prompts you for your personal password and confirms your 
+>request to execute a command by checking a file, called sudoers , which the system administrator configures
+
+Change the OS hostname via the user created in Part 2 (using sudo):
+1. First of all, I switched to superuser using **sudo su -** command
+2. I set the password to **neUser**
+![password_newUser](./images/5.2.png)
+3. I switched to newUser and changed hostname
+![hostname_newUser](./images/5.3.png)
+
 ## Part 6. Installing and configuring the time service
 
 Set up the automatic time synchronisation service.
