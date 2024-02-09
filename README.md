@@ -83,7 +83,6 @@ Update the system packages to the latest version
 ![update_command](./images/4.1.png)
 ![upgrade_command](./images/4.2.png)
 
-
 ## Part 5. Using the sudo command
 
 Allow user created in Part 2 to execute sudo command.
@@ -106,3 +105,20 @@ Change the OS hostname via the user created in Part 2 (using sudo):
 Set up the automatic time synchronisation service.
 ![check_status](./images/6.1.png)
 ![show_time](./images/6.2.png)
+
+## Part 7. Installing and basic setup of the SSHD service
+
+Useful commands, tools and advises:
+1. **ssh-copy-id -i ~/.ssh/id_rsa.pub User@Hostname** - allows you to copy your public ssh key to a remote server 
+2. Config file - (instead of manually entering the ip address and username, just add info to the config file and use only the **host** name); path: ~/.ssh
+![config_file](./images/7.1.png)
+**access_to_remote_server_using_config_file**
+![access_to_remote_server_using_config_file](./images/7.2.png)
+3. It's possible to establish host-only network between host and guest (and now I can copy and paste without using VboxGuestAdditions)
+![host_only_network](./images/7.3.png)
+4. If you only need access using ssh keys, change **passwordauthentication** from **YES** to **no** in the /etc/ssh/sshd_config file (Troubleshooting ↓↓)
+> sshd -T | grep passwordauthentication        if you see output 
+> `passwordauthentication yes`, some configurations are set prior to
+> default /etc/ssh/sshd_config, they are located in 
+> `/etc/ssh/sshd_config.d/`  , you can search  `passwordauthentication` 
+> from them or simply remove them by
