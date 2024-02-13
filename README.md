@@ -117,8 +117,62 @@ Useful commands, tools and advises:
 3. It's possible to establish host-only network between host and guest (and now I can copy and paste without using VboxGuestAdditions)
 ![host_only_network](./images/7.3.png)
 4. If you only need access using ssh keys, change **passwordauthentication** from **YES** to **no** in the /etc/ssh/sshd_config file (Troubleshooting ↓↓)
+![only_shhKey_access](./images/7.4.png)
 > sshd -T | grep passwordauthentication        if you see output 
 > `passwordauthentication yes`, some configurations are set prior to
 > default /etc/ssh/sshd_config, they are located in 
 > `/etc/ssh/sshd_config.d/`  , you can search  `passwordauthentication` 
-> from them or simply remove them by
+> from them or simply remove them
+5. **ssh-keygen -t ed25519** (creates an ssh key that is more secure and shorter than default one)
+
+### Tasks
+
+Install the SSHd service.
+![status_sshd_service](./images/7.5.png)
+
+Add an auto-start of the service whenever the system boots.
+**sudo systemctl enable sshd.service**
+
+Reset the SSHd service to port 2022.
+![port_2022](./images/7.6.png)
+
+Show the presence of the sshd process using the ps command. To do this, you need to match the keys to the command.
+![ps_aux_command](./images/7.7.png)
+
+> The `ps aux` command is used to display a full list of all the running
+> processes on a Unix-based system, along with detailed information
+> about each process. Here's a breakdown of what each part of the
+> command means:
+> 
+> -   `a`: Lists the processes of all users.
+> -   `u`: Displays detailed information about each process, including the username of the process owner.
+> -   `x`: Shows processes not attached to a terminal.
+
+The output of the netstat -tan command should contain
+tcp 0 0.0.0.0:2022 0.0.0.0:* LISTEN
+![netstat_tan_command](./images/7.8.png)
+
+Explain the meaning of the -tan keys, the value of each output column, the value 0.0.0.0. in the report.
+
+> The `-tan` option in the `netstat` command is used to display all
+> active TCP connections on a Unix-based system, showing the numerical
+> addresses and port numbers. Here's a breakdown of what each part of
+> the option means:
+> 
+> -   `-t`: Show TCP connections.
+> -   `-a`: Display all connections and listening ports.
+> -   `-n`: Show numerical addresses and port numbers, instead of resolving names.
+
+Here's the explanation of each column:
+1.  **Protocol (tcp)**: Indicates the transport layer protocol, in this case, TCP.
+2.  **Recv-Q and Send-Q**: These columns display the receive and send queue sizes, which are the amount of data waiting to be sent or received over the connection. In the given output, both are 0, indicating that there is no data waiting in the queues.
+3.  **Local Address (0.0.0.0:22 or :::22)**: Shows the IP address and port number on which the server is listening. In this case, the server is listening on all available network interfaces (0.0.0.0) for any incoming traffic on port 22, which is the standard port for SSH.
+4.  **Foreign Address (0.0.0.0:* or :::*)**: For a listening socket, this column is typically displayed as "0.0.0.0:*" to indicate that it is not connected to any specific remote host.
+5.  **State (LISTEN)**: Indicates the state of the connection. In this case, "LISTEN" means that the server is in a listening state, waiting for incoming connections.
+
+> -   "LISTENING": This state means that the system is waiting for incoming connections on the specified port. For example, a web server
+> process might be in a "LISTENING" state on port 80, waiting for
+> incoming HTTP requests.
+> -   "ESTABLISHED": This state indicates that a connection has been established between the local system and a remote system. For
+> instance, if your computer is connected to a website, the connection
+> will be in an "ESTABLISHED" state.
