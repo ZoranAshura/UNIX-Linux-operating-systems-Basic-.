@@ -176,3 +176,26 @@ Here's the explanation of each column:
 > -   "ESTABLISHED": This state indicates that a connection has been established between the local system and a remote system. For
 > instance, if your computer is connected to a website, the connection
 > will be in an "ESTABLISHED" state.
+
+## Part 8. Installing and using the top, htop utilities
+
+From the output of the top command determine and write in the report:
+-   uptime - 1:26 (hours and minutes)
+-   number of authorised users - 2 users
+-   total system load - load average: 0.00, 0.00, 0.00
+-   total number of processes -  97 total,   1 running,  96 sleeping,   0 stopped,   0 zombie
+-   cpu load -  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+-   memory load - 1971.6 total,   1201.2 free,    142.2 used,    628.2 buff/cache
+-   pid of the process with the highest memory usage - 1220 test_ssh  20   0   13944   6024   4556 R   1.7   0.3   0:01.75 sshd 
+-   pid of the process taking the most CPU time - 660 root  20   0 1245288  28656  19504 S   0.0   1.4   0:00.72 snapd  
+
+Add a screenshot of the htop command output to the report:
+
+- filtered for sshd process
+![ filtered_for_sshd_process](./images/8.1.png)
+
+- with the syslog process found by searching
+![syslog_process](./images/8.2.png)
+
+- with hostname, clock and uptime output added
+![hostname_clock_and_ptime_output_added](./images/8.3.png)
