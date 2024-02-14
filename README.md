@@ -200,3 +200,67 @@ Add a screenshot of the htop command output to the report:
 - with hostname, clock and uptime output added
 ![hostname_clock_and_ptime_output_added](./images/8.3.png)
 > Hostname - test_ssh, because this is another machine that I created to test ssh
+
+## Part 9. Using the fdisk utility
+
+Run the fdisk -l command.
+![fdisk_command](./images/9.0.png)
+
+In the report write the name of the hard disk, its capacity and number of sectors, and also the swap size.
+1. name - VBOX HARDDISK   
+2. capacity - 31.102 GiB
+3. sectors - 67104768
+4. Swap size - (I don't have a partition with the "Linux swap" type) (free -m) - 2047Mi
+
+
+## Part 10.  Using the df utility
+
+Run the df command.
+In the report write for the root partition (/):
+
+| Parameters | Values |
+|:--------:| -------------:|
+| partition size | 15371208 |
+| space used | 6588624 |
+| space free | 7979976 |
+| percentage used | 46% |
+
+Determine and write the measurement unit in the report. - **1KiB**
+
+Run the df -Th command.
+In the report write for the root partition (/):
+
+| Parameters | Values |
+|:--------:| -------------:|
+| partition size | 15G |
+| space used | 6.3G |
+| space free | 7.7G |
+| percentage used | 46% |
+
+Determine and write the file system type for the partition in the report. - **ext4**
+
+## Part 11. Using the du utility
+
+Output the size of the /home, /var, /var/log folders (in bytes, in human readable format)
+- /home - 111832 bytes / 140K - human readable
+- /var - 1381819278 bytes / 1.3G
+- /var/log - 614502531 / 587M
+
+Output the size of all contents in /var/log (not the total, but each nested element using *)
+![var/log/*](./images/11.0.png)
+
+## Part 12. Installing and using the ncdu utility
+
+Install the ncdu utility.
+
+Output the size of the /home, /var, /var/log folders.
+- /home
+![home_size](./images/12.0.png)
+
+- /var
+![var_size](./images/12.1.png)
+
+- /var/log
+![var_size](./images/12.2.png)
+
+## Part 13. Working with system logs
