@@ -199,3 +199,4 @@ Add a screenshot of the htop command output to the report:
 
 - with hostname, clock and uptime output added
 ![hostname_clock_and_ptime_output_added](./images/8.3.png)
+> Hostname - test_ssh, because this is another machine that I created to test ssh
