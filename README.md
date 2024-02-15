@@ -264,3 +264,10 @@ Output the size of the /home, /var, /var/log folders.
 ![var_size](./images/12.2.png)
 
 ## Part 13. Working with system logs
+
+Write the last successful login time, user name and login method in the report
+![last_login](./images/13.1.png)
+
+Restart SSHd service;
+Add a screenshot of the service restart message to the report (search for it in the logs).
+![restart_sshd](./images/13.0.png)
